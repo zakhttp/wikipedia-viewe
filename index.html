@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Wikipedia viewer</title>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- materialize stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"
+        type="text/css" />
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+
+</head>
+
+<body class="grey lighten-5">
+
+    <div class="section container">
+
+        <div class="section center">
+            <img src="images/wikipedia_logo.png" alt="wikipedia logo" class="responsive-img"
+            />
+        </div>
+        <form class="center">
+            <div class="input-field col s12 m6 l6 section">
+                <i class="material-icons prefix">search</i>
+                <input id="search-input" type="text" class="validate">
+                <label for="search-input">Search Wikipedia</label>
+            </div>
+            <div class="col s12 m6 l6 section">
+                <p class="center-align">OR</p>
+            </div>
+            <div class="input-field col s12 m6 l6 section">
+                <a class="waves-effect waves-light btn purple darken-4 grey-text text-lighten-5" id="random-btn"><i class="material-icons left">replay</i>load a random article</a>
+            </div>
+        </form>
+    </div>
+    <!-- jquery script -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <!-- materialize.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
