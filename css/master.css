@@ -44,3 +44,7 @@
 .input-field .prefix.active {
     color: #4a148c;
 }
+
+.results-container {
+    display: none;
+}

@@ -23,15 +23,15 @@
             <img src="images/wikipedia_logo.png" alt="wikipedia logo" class="responsive-img"
             />
         </div>
-        <form class="center">
+        <form class="center" id="search-form">
             <div class="input-field col s12 m12 l12 section">
                 <i class="material-icons prefix">search</i>
-                <input id="search-input" type="text" class="validate">
+                <input id="search-input" type="text" required>
                 <label for="search-input">Search Wikipedia</label>
                 <a class="waves-effect waves-light btn pink darken-1 grey-text text-lighten-5"
-                    id="random-btn"><i     class="material-icons left">replay</i>Search</a>
-                <a class="waves-effect waves-light btn purple darken-4 grey-text text-lighten-5"
-                    id="random-btn"><i     class="material-icons left">replay</i>Random</a>
+                    id="search-btn"><i class="material-icons left">search</i>Search</a>
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" class="waves-effect waves-light btn purple darken-4 grey-text text-lighten-5"
+                    id="random-btn"><i class="material-icons left">replay</i>Random</a>
             </div>
         </form>
     </div>
@@ -42,7 +42,18 @@
     <script src="js/underscore-min.js"></script>
     <!-- materialize.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- main app -->
     <script src="js/app.js"></script>
+    <div class="section container results-container">
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <img src="images/pikachu.png" alt="" class="circle" />
+                <span class="title">Title   </span>
+                <p>First Line <br /> Second Line</p>
+                <!-- <a href="#" class="secondary-content"><i class="material-icons">grade</i></a> -->
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>
