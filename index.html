@@ -35,6 +35,25 @@
             </div>
         </form>
     </div>
+    <script type="text/template" id="results-template">
+        <ul class="collection">
+            <% _.each(results, function (result) { %>
+                <li class="collection-item avatar">
+                    <img src="images/pikachu.png" alt="" class="circle" />
+                    <h2><%= result.title %></h2>
+                    <p>
+                        <%= result.extract %>
+                    </p>
+                    <!-- <a href="#" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                </li>
+                <% }) %>
+        </ul>
+    </script>
+
+    <div class="section container results-container">
+    </div>
+
+
     <!-- jquery script -->
     <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
@@ -44,16 +63,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <!-- main app -->
     <script src="js/app.js"></script>
-    <div class="section container results-container">
-        <ul class="collection">
-            <li class="collection-item avatar">
-                <img src="images/pikachu.png" alt="" class="circle" />
-                <span class="title">Title   </span>
-                <p>First Line <br /> Second Line</p>
-                <!-- <a href="#" class="secondary-content"><i class="material-icons">grade</i></a> -->
-            </li>
-        </ul>
-    </div>
 </body>
 
 </html>

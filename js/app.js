@@ -22,11 +22,14 @@ $(document).ready(function() {
     format: 'json',
     origin: '*'
   };
-  // /w/api.php?action=query&format=json&origin=*&prop=extracts&titles=Main+Page&generator=search&exsentences=2&exlimit=10&exintro=1&explaintext=1&exsectionformat=raw&gsrsearch=tesla
-    // https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=tesla&callback=angular.callbacks._1
+
 
   function success(json) {
-    console.log(json);
+    resultTemplate = _.template($('#results-template').html());
+    $('.results-container').append(resultTemplate({
+      results: json.query.pages
+    }));
+    $('.results-container').show();
   }
 
   function fail() {
