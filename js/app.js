@@ -1,12 +1,10 @@
-//$.getJSON("https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrnamespace=0&gsrsearch=te&gsrlimit=10&prop=info|extracts&inprop=url&format=json&callback=?", processResult);
-
 $(document).ready(function() {
   var searchForm = $('#search-form');
   var searchButton = $('#search-btn');
   var randomButton = $('#random-btn');
-  var results = $('.results-container');
-
-
+  var resultsHTML = $('.results-container');
+  var resultsListHTML = $('.results-container ul');
+  var errorsHTML = $('.errors-container');
   var url = 'https://en.wikipedia.org/w/api.php';
   var urlData = {
     action: 'query',
@@ -23,31 +21,43 @@ $(document).ready(function() {
     origin: '*'
   };
 
-
   function success(json) {
-    resultTemplate = _.template($('#results-template').html());
-    $('.results-container').append(resultTemplate({
+    var resultsTemplate = _.template($('#results-template').html());
+    resultsHTML.empty();
+    resultsHTML.append(resultsTemplate({
       results: json.query.pages
     }));
-    $('.results-container').show();
+    errorsHTML.hide();
+    resultsHTML.show('fade');
   }
 
-  function fail() {
-    console.log('fail');
+  function fail(errors, defaultError) {
+    errorsHTML.empty();
+    errors = errors || 'An error has occured, please try again';
+    var errorsTemplate = _.template($('#errors-template').html());
+    errorsHTML.empty();
+    errorsHTML.append(errorsTemplate({
+      errorMessage: errors
+    }));
+    errorsHTML.show('fade');
   }
 
   function fetchData() {
-    urlData.gsrsearch = $('#search-input').val();
-    $.ajax({
-        method: 'GET',
-        datatype: 'json',
-        url: url,
-        data: urlData
-      })
-      .done(success)
-      .fail(fail);
+    var keyword = $('#search-input').val();
+    if (keyword) {
+      urlData.gsrsearch = keyword;
+      $.ajax({
+          method: 'GET',
+          datatype: 'json',
+          url: url,
+          data: urlData
+        })
+        .done(success)
+        .fail(fail);
+    } else {
+      fail('Please specify a search keyword');
+    }
   }
-
 
   function handleSubmitEvents() {
     searchButton.click(function() {
@@ -59,14 +69,9 @@ $(document).ready(function() {
     });
   }
 
-
-
   function init() {
     handleSubmitEvents();
   }
-
-
-
 
   init();
 });
